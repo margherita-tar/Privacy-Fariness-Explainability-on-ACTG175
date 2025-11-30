@@ -1,4 +1,4 @@
-# AIDS-clinical-trials
+# ACTGS175: Privacy, Fairness e Explainability
 **1. INTRODUZIONE**
 
 1.1 Spiegazione del progetto e obiettivo del lavoro

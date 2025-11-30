@@ -2,6 +2,7 @@
 **1. INTRODUZIONE**
 
 1.1 Spiegazione del progetto e obiettivo del lavoro
+
 Il Dataset “AIDS Clinical Trials Group Study 175”, originariamente pubblicato nel 1996, rappresenta una raccolta dettagliata di dati clinici e informazioni categoriali relative a pazienti diagnosticati con AIDS. Questo dataset è stato concepito principalmente per valutare l’efficacia di diverse strategie terapeutiche per il trattamento della malattia, in particolare considerando tecniche di monoterapia e terapia combinata.
 
 L'obiettivo del lavoro è quello di implementare tecniche di tutela della privacy, di verifica dell'equità e di analisi di spiegabilità, valutando le prestazioni del modello mediante Regressione Logistica.
@@ -11,7 +12,9 @@ Il focus del progetto verte in particolare su:
 Fairness: Demographic Parity (DP), Equal Opportunity (EOD), treshold shifting
 Interpretability & Explainability: SHAP & PDP
 Anonimizzazione: K-anonimity
+
 1.2 Descrizione del Dataset
+
 Il dataset è composto da 2139 samples e 23 features + target label. La previsione di sopravvivenza/morte del paziente si basa su:
 
 Caratteristiche generali dell'individuo (dati anagrafici e comportamentali)

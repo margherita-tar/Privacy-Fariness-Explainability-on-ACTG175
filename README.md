@@ -22,10 +22,12 @@ Informazioni sul trattamento e storia clinica
 Stato di salute e valori immunologici
 
 **2. SET-UP**
+
 Import delle librerie
 Import del Dataset come file CSV e visualizzazione
 
 **3. ANALISI DEI DATI (EDA & PLOTS)**
+
 Valutando la distribuzione delle classi nella variabile target per verificare un eventuale sbilanciamento nei dati, è emerso che la classe predominante risulta essere label = 0 (paziente sopravvissuto).
 
 Dalla descrizione del dataset emerge che alcune features sono ridondanti rispetto al nostro obiettivo, dunque per rendere più agevole l'analisi predittiva alcune di esse sono state rimosse. Ad esempio, riguardo la storia antiretrovirale dei pazienti, si è deciso di mantenere le features più informative rispetto alle loro corrispettive generalizzazioni: strat invece di str2, cd40 e cd80 rispetto a cd420 e cd820, z30 invece di zprior e trt al posto di treat.
@@ -43,12 +45,14 @@ Pairplot
 Istogrammi per visualizzare la distribuzione dei valori di label per le features categoriche sia binarie che nominali. Notiamo che il trend è uno sbilanciamento verso la classe 0, come già suggerito dalla label target
 
 **4. PRE-PROCESSING E FEATURE ENGINEERING**
+
 Encoding sulle feature nominali: trt & strat
 Separazione della variabile target dalle features
 Separazione in training e test set
 Standardizzazione dei dati
 
 **5. LOGISTIC REGRESSION (modello di base e miglior modello)**
+
 Usiamo un modello semplice di Regressione Logistica per valutare le prestazioni di un modello di base con le metriche standard di:
 
 Precision
@@ -69,6 +73,7 @@ Accuratezza training set: 0.8551
 Accuratezza test set: 0.8598
 
 **6. FAIRNESS-EQUITA'**
+
 Si analizza quanto il modello tratta equamente i dati, relativamente a tre attributi sensibili della persona, che hanno più possibilità di essere oggetto di bias discriminativi:
 
 'homo'
@@ -131,6 +136,7 @@ Recall del gruppo svantaggiato (homo=0): è aumentata da 0.586 a 0.828
 Precisione e accuracy leggermente penalizzate per homo=0: trade-off accettabile per migliorare l’equità complessiva.
 
 **7. EXPLAINABILITY (SHAP - PDP)**
+
 Installazione e import di SHAP
 Import di PartialDependenceDisplay da scikit-learn per visualizzare il Partial Dependence Plot
 Si è proceduto nell'implementazione di due tecniche per la spiegabilità:
@@ -154,6 +160,7 @@ age: a rappresentare un dato personale dell'individuo
 Infine è stato plottato un grafico 3D per mostrare la relazione che sussiste tra le features selezionate per esplorare come la dipendenza parziale della predizione cambia con la durata del trattamento e il livello di cd40, per differenti fasce d’età (slice su age in quanto l'età è una caratteristica fissa del paziente).
 
 **8. ANONIMIZZAZIONE (K-ANONIMITY & REGRESSIONE LOGISTICA)**
+
 Applichiamo la tecnica del k-anonimato, che garantisce che ogni istanza del dataset sia indistinguibile da almeno altri k-1 rispetto a un insieme di quasi-identificatori (QID), ovvero attributi che, se combinati, possono rivelare l’identità di un individuo.
 
 Obiettivo: soddisfare una soglia minima di k, attraverso una generalizzazione progressiva dei dati.
@@ -191,6 +198,7 @@ Poichè abbiamo inserito forte granularità, è temibile una perdita di informaz
 Per valutare se c'è giusto compromesso tra granularità e quantità di informazione, procederemo con una Logistic Regression basata sul nuovo dataset.
 
 **9. CONFRONTO MODELLO di LOGISTIC REGRESSION: PRIMA vs DOPO ANONIMIZZAZIONE**
+
 Strutturando il modello di Regressione Logistica come fatto con dataset non-anonimizzato, possiamo paragonare i risultati:
 
 Il miglior parametro C è cambiato leggermente dal modello iniziale (0.1 → 1), segno che la distribuzione dei dati è leggermente cambiata, ma non in modo drastico.
@@ -202,9 +210,11 @@ La k-anonimity ha avuto un impatto minimo, non ha degradato le prestazioni del m
 Dunque si è raggiunto un giusto trade-off tra privatizzazione dei dati e conservazione di informazione.
 
 **10. EXPLAINABILITY POST ANONIMIZZAZIONE (SHAP)**
+
 Ripetere la tecnica SHAP di un modello a seguito di k-anonimity può essere utile per comprendere come le feature cambiano a livello di impatto sulle predizioni.
 
 **11. CONSIDERAZIONI FINALI**
+
 Giunte al termine del nostro lavoro abbiamo raccolto delle considerazioni in merito a motivazioni, aspettative e risultati che hanno guidato le nostre scelte nello svolgimento del progetto.
 
 Innanzitutto, relativamente alla selezione del dataset AIDS Clinical Trials Group 175, abbiamo ritenuto che potesse soddisfare la nostra esigenza di focalizzarci su tecniche di privacy, spiegabilità ed equità, essendo un dataset clinico reale e quindi contenente dati sensibili. Tuttavia, per tale motivo vi è una complessità maggiore e presenza di rumore rispetto a proposte didattiche: le nostre aspettative iniziali intorno ai risultati che pensavamo potessero emergere non sempre sono state soddisfatte e perciò hanno ridirezionato il nostro lavoro.

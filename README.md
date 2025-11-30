@@ -1,5 +1,6 @@
 # AIDS-clinical-trials
 **1. INTRODUZIONE**
+
 1.1 Spiegazione del progetto e obiettivo del lavoro
 Il Dataset “AIDS Clinical Trials Group Study 175”, originariamente pubblicato nel 1996, rappresenta una raccolta dettagliata di dati clinici e informazioni categoriali relative a pazienti diagnosticati con AIDS. Questo dataset è stato concepito principalmente per valutare l’efficacia di diverse strategie terapeutiche per il trattamento della malattia, in particolare considerando tecniche di monoterapia e terapia combinata.
 
